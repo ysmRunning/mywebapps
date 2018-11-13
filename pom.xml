@@ -1,0 +1,76 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.chongshi.test</groupId>
+  <artifactId>mywebapps</artifactId>
+  <packaging>war</packaging>
+  <version>1.0</version>
+  <name>mywebapps Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  
+  <!-- <build>
+    <finalName>mywebapps</finalName>
+  </build> -->
+
+<build>
+	<finalName>mywebapps</finalName>
+	<plugins>
+		<plugin>
+			<groupId>org.apache.tomcat.maven</groupId>
+			<artifactId>tomcat6-maven-plugin</artifactId>
+			<version>2.2</version>
+			<configuration>
+				<url>http://localhost:80/manager</url>
+				<path>/mywebapps</path>
+				<port>80</port>
+				<server>tomcat</server>
+				<username>admin</username>
+				<password>admin</password>
+				<charset>UTF-8</charset>
+				<encoding>UTF-8</encoding>
+				<!-- 运行redeploy命令前，要能正常访问 http://localhost/manager/html -->
+			</configuration>
+		</plugin>
+	</plugins>
+</build>
+
+<repositories>
+<repository> 
+    <id>people.apache.snapshots</id> 
+    <url> 
+        http://repository.apache.org/content/groups/snapshots-group/ 
+    </url> 
+    <releases> 
+        <enabled>false</enabled> 
+    </releases> 
+    <snapshots> 
+        <enabled>true</enabled> 
+    </snapshots> 
+</repository> 
+</repositories>
+ 
+<pluginRepositories>
+<pluginRepository> 
+    <id>apache.snapshots</id> 
+    <name>Apache Snapshots</name> 
+    <url> 
+        http://repository.apache.org/content/groups/snapshots-group/ 
+    </url> 
+    <releases> 
+        <enabled>false</enabled> 
+    </releases> 
+    <snapshots> 
+        <enabled>true</enabled> 
+    </snapshots> 
+</pluginRepository>
+</pluginRepositories>
+  
+</project>
